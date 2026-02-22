@@ -1,0 +1,31 @@
+<div class="bg-torus-panel p-6 rounded-lg border border-gray-800 shadow-xl mt-8">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-torus-accent text-xl flex items-center gap-2 font-bold">
+            <span><</span> <span>></span> Generador llms.txt
+        </h2>
+
+        @if (hasActionablePoints()) {
+        <div class="flex gap-3">
+            <button (click)="copyToClipboard()"
+                class="text-sm bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded transition-colors border border-gray-600">
+                {{ copySuccess() ? '¡Copiado!' : 'Copiar al Portapapeles' }}
+            </button>
+            <button (click)="downloadFile()"
+                class="text-sm bg-torus-accent text-torus-bg font-bold px-4 py-2 rounded transition-colors hover:bg-green-400">
+                Descargar .txt
+            </button>
+        </div>
+        }
+    </div>
+
+    @if (hasActionablePoints()) {
+    <div class="relative">
+        <pre
+            class="bg-torus-bg p-4 rounded-lg text-sm text-gray-300 overflow-x-auto border border-gray-700 font-mono whitespace-pre-wrap"><code>{{ generatedLlmText() }}</code></pre>
+    </div>
+    } @else {
+    <div class="text-center text-gray-500 py-8 border border-dashed border-gray-700 rounded-lg">
+        Responde o marca como críticos algunos puntos de fricción para generar el manifiesto semántico.
+    </div>
+    }
+</div>

@@ -1,31 +1,25 @@
+@use 'tailwindcss';
+
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
-@import 'tailwindcss';
-
-
-@layer theme {
+@layer base {
   :root {
-  --color-base: #0D0D12;
-  --color-surface: #1e293b;
-  --color-primary: #38bdf8;
-  --color-secondary: #94a3b8;
-  --color-accent: #f472b6;
-  --color-border: rgba(255, 255, 255, 0.1);
-  --font-mono: 'Fira Code', 'Courier New', monospace;
-  --bg: '#0D0D12',
-  --panel: '#1A1A24',
-  --accent: '#00FF9D', // Cyan/Verde IA
-  --text: '#A1A1AA',
-  --critical: '#FF3366'
-}
-body {
-  background-color: var(--color-base); 
-  color: #ffffff;
-  font-family: var(--font-mono);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-html {
-  scroll-behavior: smooth;
-}
+    --color-torus-bg: #0D0D12;
+    --color-torus-panel: #1A1A24;
+    --color-torus-accent: #00FF9D;
+    --color-torus-text: #A1A1AA;
+    --color-torus-critical: #FF3366;
 
+    --font-mono-torus: "Fira Code", monospace, "Courier New";
+  }
+  body {
+    background-color: var(--color-torus-bg); 
+    color: var(--color-torus-text); 
+    font-family: var(--font-mono);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
 }
