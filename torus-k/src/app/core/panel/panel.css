@@ -1,0 +1,372 @@
+/* ═══════════════════════════════════════════════════════════════
+   📄 PANEL GENERADOR LLMS.TXT
+   ═══════════════════════════════════════════════════════════════ */
+
+.celestial-generator-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.92) 100%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* ═══ HEADER ═══ */
+
+.generator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.generator-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.title-brackets {
+  background: linear-gradient(135deg, #00796b 0%, #2e7d32 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.title-text {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ BOTONES DE ACCIÓN ═══ */
+
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-copy,
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+/* Botón Copiar */
+.btn-copy {
+  background: linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(226, 232, 240, 0.8) 100%);
+  color: #334155;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-copy:hover {
+  background: linear-gradient(135deg, rgba(226, 232, 240, 1) 0%, rgba(203, 213, 225, 0.9) 100%);
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.btn-copy:active {
+  transform: translateY(0);
+}
+
+/* Estado de éxito al copiar */
+.btn-copy-success {
+  background: linear-gradient(
+    135deg,
+    rgba(220, 252, 231, 0.9) 0%,
+    rgba(187, 247, 208, 0.8) 100%
+  ) !important;
+  color: #15803d !important;
+  border-color: #86efac !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25) !important;
+  animation: success-pop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes success-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Botón Descargar */
+.btn-download {
+  background: linear-gradient(135deg, #00897b 0%, #00796b 100%);
+  color: white;
+  box-shadow:
+    0 4px 12px rgba(0, 137, 123, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-download:hover {
+  background: linear-gradient(135deg, #00695c 0%, #00574b 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(0, 137, 123, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-download:active {
+  transform: translateY(0);
+  box-shadow:
+    0 2px 8px rgba(0, 137, 123, 0.3),
+    inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ═══ CONTENIDO GENERADO ═══ */
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  border-radius: 0.75rem;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.label-badge {
+  margin-left: auto;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(135deg, rgba(0, 137, 123, 0.1) 0%, rgba(0, 121, 107, 0.15) 100%);
+  color: #00695c;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 137, 123, 0.3);
+  font-family: 'Fira Code', monospace;
+}
+
+.generated-content {
+  position: relative;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.content-pre {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  line-height: 1.7;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  white-space: pre-wrap; 
+  word-wrap: break-word; 
+  word-break: break-word;
+}
+
+.content-pre code {
+  color: inherit;
+  white-space: inherit;
+  font-family: inherit;
+}
+
+/* Scrollbar personalizado para el pre */
+.content-pre::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.content-pre::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.content-pre::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  border-radius: 5px;
+}
+
+.content-pre::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+}
+
+.content-pre::-webkit-scrollbar-corner {
+  background: #1e293b;
+}
+
+/* ═══ ESTADO VACÍO ═══ */
+
+.empty-generator-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.6) 100%);
+  border: 2px dashed #cbd5e1;
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.empty-generator-icon {
+  width: 64px;
+  height: 64px;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.empty-generator-title {
+  color: #0f172a;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+}
+
+.empty-generator-description {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  max-width: 450px;
+}
+
+/* Pasos indicativos */
+.empty-generator-steps {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.7) 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 0.75rem;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.step-number {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00897b 0%, #00796b 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border-radius: 50%;
+  box-shadow:
+    0 4px 12px rgba(0, 137, 123, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.step-item span {
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📱 RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .generator-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .generator-title {
+    justify-content: center;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-copy,
+  .btn-download {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .empty-generator-steps {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .step-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .step-item span {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .celestial-generator-panel {
+    padding: 1rem;
+  }
+
+  .generator-title {
+    font-size: 1.125rem;
+  }
+
+  .content-pre {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+}

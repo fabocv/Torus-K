@@ -1,12 +1,13 @@
 import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ScannerService } from '../service/scanner';
+import { ScannerService } from '../../service/scanner';
 
 @Component({
   selector: 'app-response-panel',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: "./panel.html"
+  templateUrl: "./panel.html",
+  styleUrl: "./panel.css",
 })
 export class ResponsePanelComponent {
   scanner = inject(ScannerService);
