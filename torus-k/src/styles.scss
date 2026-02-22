@@ -4,14 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap');
 @layer base {
   :root {
-    --color-torus-bg: #0D0D12;
-    --color-torus-panel: #1A1A24;
-    --color-torus-accent: #00FF9D;
-    --color-torus-text: #A1A1AA;
-    --color-torus-critical: #FF3366;
-
-    --font-mono-torus: "Fira Code", monospace, "Courier New";
+    --color-torus-bg: #0a0a0f;
+    --color-torus-panel: #111118;
+    --color-torus-accent: #00ff88;
+    --color-torus-cyan: #00e5ff;
+    --color-torus-purple: #a78bfa;
+    --color-torus-text: #9ca3af;
+    --color-torus-critical: #ff4444;
+    --color-torus-border: #1f2937; /* ── Tipografía ── */
+    --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace; /* ── Espaciado extra ── */
+    --spacing-18: 4.5rem;
   }
+  
   body {
     background-color: var(--color-torus-bg); 
     color: var(--color-torus-text); 
