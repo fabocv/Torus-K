@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "publish": "npx angular-cli-ghpages --dir=dist/torus-k/browser",
+    "build": "ng build --configuration=production --base-href /Torus-K/ && cp dist/torus-k/browser/index.csr.html dist/torus-k/browser/index.html && cp dist/torus-k/browser/index.html dist/torus-k/browser/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:torus-k": "node dist/torus-k/server/server.mjs"
@@ -32,6 +33,7 @@
     "@angular/platform-server": "^21.1.0",
     "@angular/router": "^21.1.0",
     "@angular/ssr": "^21.1.0",
+    "@fontsource/fira-code": "^5.2.7",
     "@tailwindcss/postcss": "^4.2.0",
     "express": "^5.1.0",
     "postcss": "^8.5.6",
