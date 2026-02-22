@@ -50,6 +50,8 @@ export class ResponsePanelComponent {
       });
     }
 
+    output = this.generateLlmsTxt(output);
+
     return output;
   });
 
@@ -59,6 +61,29 @@ export class ResponsePanelComponent {
       setTimeout(() => this.copySuccess.set(false), 2000);
     });
   }
+
+  generateLlmsTxt(content : string) {
+    const instructions = `
+### Instrucciones para la Configuración de llms.txt
+
+Para asegurarte de que los modelos de lenguaje (LLMs) puedan acceder y utilizar correctamente el contenido de este archivo, sigue estos pasos:
+
+1. **Ubicación**: Asegúrate de que el archivo \`llms.txt\` se encuentre en la raíz de tu dominio. Por ejemplo:
+   - Si tu web es \`www.ejemplo.com\`, el archivo debe ser accesible en \`www.ejemplo.com/llms.txt\`.
+
+2. **Formato**: Asegúrate de que el archivo esté en formato de texto plano (plain text) y que tenga la extensión \`.txt\`.
+
+3. **Accesibilidad**: Verifica que no haya restricciones en el acceso al archivo por parte de los bots de búsqueda y agentes de IA. No debe haber autenticación requerida para acceder a este archivo.
+
+4. **Actualización**: Revisa y actualiza \`llms.txt\` regularmente para reflejar cualquier cambio en tu sitio web, asegurando que los modelos tengan siempre la información más precisa.
+
+Siguiendo estas instrucciones, podrás maximizar la efectividad de la optimización semántica de tu sitio web para modelos de lenguaje.
+    `;
+    
+    const llmsOutput = content + instructions;
+    return llmsOutput;
+}
+
 
   downloadFile() {
     const blob = new Blob([this.generatedLlmText()], { type: 'text/plain' });
